@@ -17,7 +17,7 @@
   ```
 
   How ?   
-  Because in javascript the function context is who called her, so in this case `catSound` is not called from any object.
+In javascript the function context is the object who call the function, because in this case `catSound` is attached to the context of the function because of the `this` we can not call `catSound` without bind a context.
 
 - FP  
   ```javascript
