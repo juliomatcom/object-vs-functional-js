@@ -15,6 +15,7 @@
 
   el.click(); // undefined
   ```
+  :facepunch: :dizzy_face:
   What, Why ?  
   As [Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) explain:  
   >  When attaching a **handler function** to an element using `addEventListener()`, the **value** of `this` inside the handler is a **reference to the element**.
@@ -36,5 +37,5 @@
 
   el.click(); // miau
   ```
-  See ?  
+  See ? :thumbsup:  
   All we do is pass a pure function that **not depends** on the context around, the result of a pure function will never depends on the `this` state. Pure functions are more **expressive and declarative**, all its dependencies will be passed as arguments always.
