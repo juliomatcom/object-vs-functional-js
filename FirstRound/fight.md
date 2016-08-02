@@ -4,40 +4,37 @@
 
   function Cat (sound) {
     this.sound = sound;
-    this.speak = function () {// impure
+    this.speak = function () {// impure function
       console.log(this.sound);
     }
   }
   let cat = new Cat('miau');
 
-  let catSound = cat.speak;
-  catSound(); // undefined
+  let el = document.getElementById('catButton');
+  el.addEventListener('click', cat.speak);
 
-  catSound.apply(cat); // miau
+  el.click(); // undefined
   ```
+  What, Why ?  
+  As [Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) explain:  
+  >  When attaching a **handler function** to an element using `addEventListener()`, the **value** of `this` inside the handler is a **reference to the element**.
 
-  How ?   
-In javascript the function context is the object who call the function, because in this case `catSound` is attached to the context of the function because of the `this` we can not call `catSound` without bind a context.
+  The function `cat.speak` will be called in the context of `el` and `this.sound` will be `undefined` :(  
 
 - FP  
+  Lets see the functional approach
   ```javascript
   let logValueFun = function (value) {// pure function
     return function () {
       console.log(value);
     }
   }
+  let catSpeak = logValueFun('miau');
 
-  function makeCats (state) {
-    return Object.assign({}, state, {
-      speak: logValueFun(state.sound)
-    })
-  }
+  let el = document.getElementById('catButton');
+  el.addEventListener('click', catSpeak);
 
-  let cat = makeCats({
-    sound: 'miau'
-  });
-  let catSound = cat.speak;
-
-  catSound(); // miau
-  ```  
-  *Hit down!* Now this is possible because `catSound` is a pure function that not depends on the environment that sorrounds it, in this case the intance of cat
+  el.click(); // miau
+  ```
+  See ?  
+  All we do is pass a pure function that **not depends** on the context around, the result of a pure function will never depends on the `this` state. Pure functions are more **expressive and declarative**, all its dependencies will be passed as arguments always.
