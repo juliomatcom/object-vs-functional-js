@@ -26,9 +26,9 @@
 - FP  
   Lets see the functional approach
   ```javascript
-  let logValueFun = function (value) {// pure function
+  let logValueFun = function (text) {// pure function
     return function () {
-      console.log(value);
+      console.log(text);
     }
   }
   let catSpeak = logValueFun('miau');
