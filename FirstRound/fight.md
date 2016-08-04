@@ -16,8 +16,9 @@
   el.click(); // undefined
   ```
   :facepunch: :dizzy_face:
-  What, Why ?  
-  As [Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) explain:  
+  What, Why ?  <span style="float: right;"> <a href="https://jsfiddle.net/juliomatcom/pmn39nnn/">open in jsfiddle</a></span>  
+
+  As [Mozilla MDN](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) explain:
   >  When attaching a **handler function** to an element using `addEventListener()`, the **value** of `this` inside the handler is a **reference to the element**.
 
   The function `cat.speak` will be called in the context of `el` and `this.sound` will be `undefined` :(  
@@ -37,5 +38,6 @@
 
   el.click(); // miau
   ```
-  See ? :thumbsup:  
+  :thumbsup:  See ? <span style="float: right;"> <a href="https://jsfiddle.net/juliomatcom/jewun21y/">open in jsfiddle</a></span>  
+
   All we do is pass a pure function that **not depends** on the context around, the result of a pure function will never depends on the `this` state. Pure functions are more **expressive and declarative**, all its dependencies will be passed as arguments always.
