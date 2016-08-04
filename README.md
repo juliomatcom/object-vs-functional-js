@@ -15,7 +15,7 @@ In JavaScript we can choose to use either of the OOP or FP paradigms as much, or
 
 All this is possible because in JavaScript functions are **first-class citizens**. This means **functions are objects** (of the type ```Object```), and, therefore, can be assigned as the **value** of a variable. The ability to use higher-order functions -a function that takes a function as an argument or that returns a function as a result- makes JavaScript a suitable language for functional programming.
 
-### Now Let the fight begin:
-- First round
+## Now Let the fight begin:
+- [First round](https://github.com/juliomatcom/object-vs-functional-js/blob/master/FirstRound/fight.md)
 - Second round
 - Third round
