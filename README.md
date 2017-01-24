@@ -1,4 +1,4 @@
-## :fire: Object vs Functional Programming in JS :fire:
+## :fire: Object Oriented vs Functional Programming in JS :fire:
 We will learn through real examples how **Functional Programming** can provide a better approach than ~~Object Oriented Programming~~- in some situations that we are currently dealing with.  
 
 
